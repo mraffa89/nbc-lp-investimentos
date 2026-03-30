@@ -1,0 +1,196 @@
+:root {
+  /* Colors */
+  --color-primary-dark: #3B2327; /* Marrom escuro */
+  --color-secondary-gold: #C9943B; /* Dourado */
+  --color-gold-hover: #DDB166; /* Dourado mais claro para hover */
+  --color-gold-dark: #B8862B; /* Dourado escuro para CTAs */
+  --color-bg-light: #F5F0EB;    /* Off-white quente */
+  --color-bg-alt: #EDE8E0;      /* Bege/Creme */
+  --color-bg-white: #FFFFFF;    /* Branco */
+  --color-text-main: #2C1A1E;   /* Texto principal sobre claro */
+  --color-text-invert: #F5F0EB; /* Off-white sobre escuro */
+  --color-whatsapp: #38B160;    /* Verde requisitado pelo cliente */
+  --color-whatsapp-hover: #298d49;
+
+  /* Typography */
+  --font-heading: 'Google Sans Flex', 'Google Sans', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Google Sans Flex', 'Google Sans', 'Plus Jakarta Sans', sans-serif;
+  
+  /* Spacing */
+  --space-micro: 0.5rem;   /* 8px */
+  --space-xs: 1rem;        /* 16px */
+  --space-sm: 1.5rem;      /* 24px */
+  --space-md: 2rem;        /* 32px */
+  --space-lg: 3rem;        /* 48px */
+  --space-xl: 5rem;        /* 80px */
+  --space-xxl: 7.5rem;     /* 120px */
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+/* Reset and Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+  color: inherit;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin-bottom: var(--space-xs);
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+/* Typography Utility Classes */
+.text-gold {
+  color: var(--color-secondary-gold);
+}
+
+.text-white {
+  color: var(--color-text-invert);
+}
+
+/* Layout Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+  width: 100%;
+}
+
+.section {
+  padding: var(--space-xl) 0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--space-xxl) 0;
+  }
+}
+
+.bg-dark {
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-invert);
+}
+
+.bg-light {
+  background-color: var(--color-bg-light);
+}
+
+.bg-alt {
+  background-color: var(--color-bg-alt);
+}
+
+/* Global Pill Button Style */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 23px; /* Reduzido 13% (de 26) */
+  background: linear-gradient(90deg, #d2a15f, #ecd1a8);
+  color: var(--color-primary-dark);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.3rem; /* Reduzido 13% (de 1.5) */
+  padding: 10px 10px 10px 27px; /* Reduzido 13% (de 11 e 31) */
+  border-radius: 80px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(210, 161, 95, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+}
+
+/* Icon in a white circle utilizing ::after */
+.btn::after {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  width: 50px; /* Reduzido 13% (de 58) */
+  height: 50px; /* Reduzido 13% (de 58) */
+  border-radius: 50%;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%233B2327' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7'%3E%3C/path%3E%3Cpath d='M7 7h10v10'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25px; /* Reduzido 13% (de 29) */
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(210, 161, 95, 0.4);
+  color: var(--color-primary-dark);
+}
+
+.btn:hover::after {
+  transform: scale(1.05) translate(2px, -2px);
+}
+
+/* Helper classes removed to pass linter, btn handles all styles */
+
+/* Animation Utilities (Intersection Observer hooks) */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+.fade-in.is-visible {
+  opacity: 1;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.slide-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Apply transition delays intelligently via inline styles in components */
+
+/* Subtitle style used in logo and specific labels */
+.subtitle-caps {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-secondary-gold);
+}

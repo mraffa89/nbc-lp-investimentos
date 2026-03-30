@@ -1,0 +1,79 @@
+.expertise-section {
+  position: relative;
+  /* Original image set as background */
+  background-image: url('/bg-especialistas.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Glassmorphism / Faded overlay layer for the blur effect */
+.expertise-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(245, 240, 235, 0.70); /* Light warm tone faded */
+  backdrop-filter: blur(6px); /* The "levemente esmaecida com blur" effect */
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 0;
+}
+
+/* Elevate the container content above the blur layer */
+.expertise-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .expertise-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+.expertise-card {
+  background-color: var(--color-bg-white);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(59, 35, 39, 0.03);
+  border-top: 4px solid var(--color-secondary-gold);
+  transition: transform 0.3s ease;
+}
+
+.expertise-card:hover {
+  transform: translateY(-8px);
+}
+
+.expertise-icon {
+  width: 64px;
+  height: 64px;
+  background-color: var(--color-bg-light);
+  border-radius: 50%;
+  border: 1px solid rgba(201, 148, 59, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+}
+
+.expertise-title {
+  color: var(--color-primary-dark);
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xs);
+  line-height: 1.4;
+}
+
+.expertise-desc {
+  color: var(--color-text-main);
+  opacity: 0.85;
+  line-height: 1.6;
+}
