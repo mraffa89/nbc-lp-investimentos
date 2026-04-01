@@ -41,6 +41,10 @@ const FAQ = () => {
           alt=""
           className="faq-bg-image"
           aria-hidden="true"
+          width="671"
+          height="850"
+          loading="lazy"
+          decoding="async"
         />
         {/* Overlay para contraste */}
         <div className="faq-overlay"></div>

@@ -9,7 +9,11 @@ const AboutUs = () => {
       <div className="about-image-bg slide-up" style={{ animationDelay: '0.3s' }}>
         <img
           src="/adv.jpg"
-          alt="Advogada Especialista em Direito Bancário"
+          alt="Advogada Especialista em Direito Bancário e Defesa do Consumidor - NBC Advocacia"
+          width="576"
+          height="768"
+          loading="lazy"
+          decoding="async"
           onError={(e) => {
             e.target.style.display = 'none';
             e.target.nextSibling.style.display = 'flex';

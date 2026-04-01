@@ -7,7 +7,7 @@ const Hero = () => {
       {/* Background Image is now absolute inside .hero, before container */}
       <div className="hero-image fade-in" style={{ animationDelay: '0.4s' }}>
         <div className="image-frame">
-          <img src="/Foto_Secao_01.png" alt="Advogados Especialistas" className="img-placeholder" />
+          <img src="/Foto_Secao_01.png" alt="Advogados Especialistas em Direito Bancário NBC Advocacia" className="img-placeholder" width="896" height="1280" fetchpriority="high" />
         </div>
       </div>
 
