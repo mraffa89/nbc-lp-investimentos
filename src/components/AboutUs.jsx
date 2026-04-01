@@ -7,21 +7,21 @@ const AboutUs = () => {
 
       {/* Imagem preenchendo o background à esquerda no desktop */}
       <div className="about-image-bg slide-up" style={{ animationDelay: '0.3s' }}>
-        <img
-          src="/adv.jpg"
-          alt="Advogada Especialista em Direito Bancário e Defesa do Consumidor - NBC Advocacia"
-          width="576"
-          height="768"
-          loading="lazy"
-          decoding="async"
-          onError={(e) => {
-            e.target.style.display = 'none';
-            e.target.nextSibling.style.display = 'flex';
-          }}
-        />
-        <div className="fallback-placeholder" style={{ display: 'none', width: '100%', height: '100%', backgroundColor: 'var(--color-bg-white)', alignItems: 'center', justifyContent: 'center', color: 'var(--color-secondary-gold)', fontWeight: 600 }}>
-          adv.jpg placeholder
-        </div>
+        <picture>
+          <source srcSet="/adv-mobile.webp" type="image/webp" media="(max-width: 767px)" />
+          <source srcSet="/adv.webp" type="image/webp" />
+          <img
+            src="/adv.jpg"
+            alt="Advogada Especialista em Direito Bancário e Defesa do Consumidor - NBC Advocacia"
+            width="576"
+            height="768"
+            loading="lazy"
+            decoding="async"
+            onError={(e) => {
+              e.target.style.display = 'none';
+            }}
+          />
+        </picture>
       </div>
 
       <div className="container about-container">

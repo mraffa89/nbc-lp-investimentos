@@ -36,16 +36,19 @@ const FAQ = () => {
     <>
       <section className="section faq-section" id="faq">
         {/* Imagem posicionada à esquerda */}
-        <img
-          src="/bg-faq.png"
-          alt=""
-          className="faq-bg-image"
-          aria-hidden="true"
-          width="671"
-          height="850"
-          loading="lazy"
-          decoding="async"
-        />
+        <picture>
+          <source srcSet="/bg-faq.webp" type="image/webp" />
+          <img
+            src="/bg-faq.png"
+            alt=""
+            className="faq-bg-image"
+            aria-hidden="true"
+            width="671"
+            height="850"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
         {/* Overlay para contraste */}
         <div className="faq-overlay"></div>
 

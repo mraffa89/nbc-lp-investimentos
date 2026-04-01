@@ -1,10 +1,17 @@
 .expertise-section {
   position: relative;
-  /* Original image set as background */
-  background-image: url('/bg-especialistas.png');
+  /* WebP otimizado para performance */
+  background-image: url('/bg-especialistas.webp');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  /* background-attachment: fixed é extremamente lento em mobile — removido */
+  background-attachment: scroll;
+}
+
+@media (min-width: 992px) {
+  .expertise-section {
+    background-attachment: fixed;
+  }
 }
 
 /* Glassmorphism / Faded overlay layer for the blur effect */
