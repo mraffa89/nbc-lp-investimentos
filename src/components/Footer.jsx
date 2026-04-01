@@ -55,7 +55,7 @@ const Footer = () => {
             <a href="https://www.instagram.com/nbc.advogados/" className="social-icon" aria-label="Instagram">
               <InstagramIcon />
             </a>
-            <a href="https://wa.me/5519991686252" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="WhatsApp">
+            <a href="https://wa.me/5519978277453" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="WhatsApp">
               <MessageCircle size={24} />
             </a>
           </div>

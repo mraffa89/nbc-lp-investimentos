@@ -21,7 +21,7 @@ const Hero = () => {
             <p className="sub-headline">Você pode ter direitos que ainda não conhece, além da chance de recuperar seu prejuízo parcial ou totalmente.</p>
 
 
-            <a href="https://wa.me/5519991686252?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20preciso%20de%20ajuda%20legal%20sobre%20o%20tema%20de%20investimentos." target="_blank" rel="noopener noreferrer" className="btn btn-hero mt-4">
+            <a href="https://wa.me/5519978277453?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20preciso%20de%20ajuda%20legal%20sobre%20o%20tema%20de%20investimentos." target="_blank" rel="noopener noreferrer" className="btn btn-hero mt-4">
               Agendar conversa inicial
             </a>
 
