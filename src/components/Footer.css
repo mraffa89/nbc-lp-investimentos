@@ -6,7 +6,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: var(--space-md);
   padding-bottom: var(--space-sm);
 }
@@ -15,13 +16,14 @@
   .footer-top {
     flex-direction: row;
     align-items: center;
+    text-align: left;
   }
 }
 
 .footer-brand-simple {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-xs);
 }
 
@@ -73,7 +75,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: var(--space-md);
 }
 
@@ -81,6 +84,7 @@
   .footer-bottom-simple {
     flex-direction: row;
     align-items: center;
+    text-align: left;
   }
 }
 

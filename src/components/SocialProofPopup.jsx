@@ -35,8 +35,8 @@ const SocialProofPopup = () => {
   useEffect(() => {
     // 2. Lógica para sortear e exibir repetidamente com intervalos
     const scheduleNextPopup = () => {
-      // Sorteia próximo aparecimento entre 8 a 15 segundos
-      const nextAppearanceMs = Math.floor(Math.random() * (15000 - 8000 + 1)) + 8000;
+      // Sorteia próximo aparecimento entre 20 e 40 segundos para parecer mais orgânico.
+      const nextAppearanceMs = Math.floor(Math.random() * (40000 - 20000 + 1)) + 20000;
       
       showTimeoutRef.current = setTimeout(() => {
         showPopup();
@@ -44,8 +44,11 @@ const SocialProofPopup = () => {
     };
 
     const showPopup = () => {
-      // Pick random name
+      // Pick random name and masked last initial
       const randomName = MOCK_NAMES[Math.floor(Math.random() * MOCK_NAMES.length)];
+      const LAST_INITIALS = ['A', 'C', 'F', 'G', 'L', 'M', 'P', 'R', 'S', 'T', 'V'];
+      const randomInitial = LAST_INITIALS[Math.floor(Math.random() * LAST_INITIALS.length)];
+      const formattedName = `${randomName} ${randomInitial}***`;
       
       // Pick city - 60% chance to be user's city (if available), 40% random fallback
       let selectedCity = '';
@@ -55,7 +58,7 @@ const SocialProofPopup = () => {
         selectedCity = FALLBACK_CITIES[Math.floor(Math.random() * FALLBACK_CITIES.length)];
       }
 
-      setNotification({ name: randomName, city: selectedCity });
+      setNotification({ name: formattedName, city: selectedCity });
       setIsVisible(true);
 
       // Hide after 5 seconds
@@ -79,17 +82,17 @@ const SocialProofPopup = () => {
     <div className={`social-proof-popup ${isVisible ? 'visible' : ''}`}>
       <div className="social-proof-content">
         <div className="social-proof-icon">
-          {/* Checkmark icon */}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          {/* iOS-like checkmark symbol */}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
         <div className="social-proof-text">
-          <p className="social-proof-title">
-            <strong>{notification.name}</strong> de <strong>{notification.city}</strong>
-          </p>
-          <p className="social-proof-desc">acabou de solicitar contato.</p>
-          <span className="social-proof-time">agora mesmo</span>
+          <div className="social-proof-header">
+            <p className="social-proof-title">{notification.name}</p>
+            <span className="social-proof-time">agora</span>
+          </div>
+          <p className="social-proof-desc">De {notification.city}, solicitou avaliação do caso.</p>
         </div>
       </div>
     </div>

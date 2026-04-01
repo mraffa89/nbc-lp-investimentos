@@ -1,8 +1,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding: var(--space-xl) 0;
-  min-height: 80vh;
+  padding: 0 0 var(--space-xl) 0; /* No top padding on mobile so image is flush */
   display: flex;
   flex-direction: column;
 }
@@ -10,6 +9,7 @@
 @media (min-width: 992px) {
   .hero {
     min-height: 100vh;
+    padding: var(--space-xl) 0;
   }
 }
 
@@ -40,14 +40,22 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+@media (min-width: 992px) {
+  .hero-container {
+    justify-content: center;
+  }
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
-  margin-top: 0;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
   position: relative;
   z-index: 3;
 }
@@ -57,13 +65,16 @@
     display: block;
     max-width: 55%;
     margin-top: 0;
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
 .hero-text h1 {
   color: var(--color-bg-white);
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: var(--space-sm);
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -72,19 +83,40 @@
   }
 }
 
+@media (min-width: 992px) {
+  .hero-text h1 {
+    text-align: left;
+  }
+}
+
 .hero-text .sub-headline {
   color: var(--color-text-invert);
-  font-size: 1.325rem;
+  font-size: 1.15rem;
   opacity: 0.95;
   margin-bottom: var(--space-md);
   max-width: 600px;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .hero-text .sub-headline {
+    text-align: left;
+    font-size: 1.325rem;
+  }
 }
 
 .trust-badges {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-sm);
   margin-top: var(--space-md);
+}
+
+@media (min-width: 992px) {
+  .trust-badges {
+    justify-content: flex-start;
+  }
 }
 
 .trust-badges .badge {
@@ -94,19 +126,17 @@
 }
 
 /* 
- * HERO IMAGE - FULL BLEED ABSOLUTE POSITIONING 
+ * HERO IMAGE - FULL BLEED ABSOLUTE POSITIONING (Desktop) / RELATIVE (Mobile)
  */
 .hero-image {
-  position: absolute;
+  position: relative; /* relative for mobile so it stacks */
   top: 0;
-  right: 0;
   width: 100%;
-  height: 100%;
-  max-height: none;
+  height: 50vh;
+  min-height: 300px;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.3;
-  /* Low opacity on mobile so text is legible */
+  opacity: 1;
 }
 
 .image-frame {
@@ -124,7 +154,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  /* keep humans in center */
 }
 
 /* Editorial Gradient fade */
@@ -135,15 +164,19 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, var(--color-primary-dark) 0%, transparent 100%), linear-gradient(to top, var(--color-primary-dark) 0%, transparent 30%);
+  /* fade bottom explicitly to merge with dark section on mobile */
+  background: linear-gradient(to top, var(--color-primary-dark) 0%, transparent 60%);
   z-index: 5;
 }
 
 @media (min-width: 992px) {
   .hero-image {
+    position: absolute; /* return to absolute for desktop */
+    right: 0;
     width: 55vw;
-    /* span 55% of the screen width from the right */
-    opacity: 1;
+    height: 100%;
+    max-height: none;
+    min-height: auto;
   }
 
   .img-placeholder {
@@ -159,20 +192,38 @@
   margin-top: var(--space-md);
 }
 
-/* Special custom styling moved to global .btn in index.css */
-
 /* Hero Specific CTA Button - Larger and Pulsing */
 .btn-hero {
-  font-size: 1.55rem;
-  padding: 12px 12px 12px 32px;
-  gap: 26px;
+  font-size: 1.2rem;
+  padding: 10px 10px 10px 24px;
+  gap: 20px;
   animation: pulse-glow-hero 2s infinite;
+  margin: 0 auto; /* explicit center for mobile flex/block */
+  display: flex;
+}
+
+@media (min-width: 992px) {
+  .btn-hero {
+    font-size: 1.55rem;
+    padding: 12px 12px 12px 32px;
+    gap: 26px;
+    margin: 0; /* reset */
+    display: inline-flex;
+  }
 }
 
 .btn-hero::after {
-  width: 60px;
-  height: 60px;
-  background-size: 30px;
+  width: 50px;
+  height: 50px;
+  background-size: 25px;
+}
+
+@media (min-width: 992px) {
+  .btn-hero::after {
+    width: 60px;
+    height: 60px;
+    background-size: 30px;
+  }
 }
 
 @keyframes pulse-glow-hero {

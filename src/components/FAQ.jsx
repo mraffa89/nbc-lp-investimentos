@@ -92,7 +92,7 @@ const FAQ = () => {
           <div className="faq-cta-box">
             <h3 className="cta-final-title">Não deixe que o tempo jogue contra você.</h3>
             <p className="cta-final-desc">
-              Quanto mais cedo você buscar orientação jurídica, maiores as chances de rastrear bens, bloquear patrimônio dos responsáveis e recuperar o que é seu por direito. A NBC está pronta para ouvir você.
+              Quanto mais cedo você buscar orientação jurídica, maiores as chances de rastrear bens, bloquear patrimônio dos responsáveis e recuperar o que é seu por direito. Estamos prontos para ouvir você.
             </p>
             <a href="https://wa.me/5519991686252?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20preciso%20de%20ajuda%20legal%20sobre%20o%20tema%20de%20investimentos." target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-md">
               Buscar orientação jurídica especializada

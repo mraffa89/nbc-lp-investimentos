@@ -48,11 +48,11 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="footer-bottom-simple">
           <div className="footer-copy">
-            <p>&copy; {new Date().getFullYear()} NBC Advocacia - OAB/SP XXX.XXX</p>
+            <p>&copy; {new Date().getFullYear()} NBC Advocacia</p>
             <p>Todos os direitos reservados. - Desenvolvido por: MHB RAFFA DESIGN & MARKETING DIGITAL LTDA</p>
           </div>
           <div className="footer-socials">
-            <a href="#" className="social-icon" aria-label="Instagram">
+            <a href="https://www.instagram.com/nbc.advogados/" className="social-icon" aria-label="Instagram">
               <InstagramIcon />
             </a>
             <a href="https://wa.me/5519991686252" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="WhatsApp">

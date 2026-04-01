@@ -27,7 +27,9 @@ const AboutUs = () => {
 
         <div className="about-text-content slide-up">
           <span className="subtitle-caps">Por que escolher o NBC?</span>
-          <h2 className="title-dark mt-xs">Somos especialistas em direito bancário e defesa do consumidor.</h2>
+          <h2 className="title-dark mt-xs">
+            Somos especialistas em direito bancário e <span style={{ whiteSpace: 'nowrap' }}>defesa do consumidor.</span>
+          </h2>
 
           <div className="text-body-lg mt-md">
             <p>
