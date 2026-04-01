@@ -18,6 +18,71 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://lp.nbcadvogados.com.br/" />
 
+    <!-- CRITICAL: Inline CSS for above-the-fold content (eliminates render-blocking) -->
+    <style>
+      :root {
+        --color-primary-dark: #3B2327;
+        --color-secondary-gold: #C9943B;
+        --color-bg-light: #F5F0EB;
+        --color-bg-alt: #EDE8E0;
+        --color-bg-white: #FFFFFF;
+        --color-text-main: #2C1A1E;
+        --color-text-invert: #F5F0EB;
+        --space-xs: 1rem;
+        --space-sm: 1.5rem;
+        --space-md: 2rem;
+        --space-xl: 5rem;
+        --font-body: 'Plus Jakarta Sans', sans-serif;
+        --font-heading: 'Plus Jakarta Sans', sans-serif;
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: var(--font-body);
+        color: var(--color-text-main);
+        background-color: var(--color-bg-light);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 0 0 var(--space-xl) 0;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-primary-dark);
+        color: var(--color-text-invert);
+      }
+      .hero-image {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: 50vh;
+        min-height: 300px;
+        z-index: 1;
+        pointer-events: none;
+      }
+      .image-frame {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .img-placeholder {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--space-sm);
+        width: 100%;
+      }
+      /* Prevent animation from hiding visible elements before JS loads */
+      .fade-in, .slide-up { opacity: 1; }
+    </style>
+
     <!-- CRITICAL: Preload LCP hero image (mobile and desktop) -->
     <link
       rel="preload"
@@ -38,18 +103,18 @@
 
     <!-- Open Graph (WhatsApp, Facebook, etc.) -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://nbc-lp-investimentos.mhbraffa.easypanel.host/" />
+    <meta property="og:url" content="https://lp.nbcadvogados.com.br/" />
     <meta property="og:site_name" content="NBC Advocacia" />
     <meta property="og:title" content="NBC Advocacia | Vítima de Fraude em Investimentos? Recupere Seu Dinheiro" />
     <meta property="og:description" content="Somos especialistas em direito bancário e defesa de investidores lesados. Recupere o que é seu. Atendemos em todo o Brasil." />
-    <meta property="og:image" content="https://nbc-lp-investimentos.mhbraffa.easypanel.host/NBC_Logo.svg" />
+    <meta property="og:image" content="https://lp.nbcadvogados.com.br/NBC_Logo.svg" />
     <meta property="og:locale" content="pt_BR" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="NBC Advocacia | Vítima de Fraude em Investimentos?" />
     <meta name="twitter:description" content="Especialistas em recuperação de prejuízos por fraudes financeiras. Atendemos todo o Brasil." />
-    <meta name="twitter:image" content="https://nbc-lp-investimentos.mhbraffa.easypanel.host/NBC_Logo.svg" />
+    <meta name="twitter:image" content="https://lp.nbcadvogados.com.br/NBC_Logo.svg" />
 
     <!-- Google Fonts - preconnect crítico para performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -71,8 +136,8 @@
       "@context": "https://schema.org",
       "@type": "LegalService",
       "name": "NBC Advocacia",
-      "url": "https://nbc-lp-investimentos.mhbraffa.easypanel.host/",
-      "logo": "https://nbc-lp-investimentos.mhbraffa.easypanel.host/NBC_Logo.svg",
+      "url": "https://lp.nbcadvogados.com.br/",
+      "logo": "https://lp.nbcadvogados.com.br/NBC_Logo.svg",
       "description": "Escritório especializado na defesa de investidores lesados por fraudes financeiras, golpes do PIX, bloqueio de saques e práticas abusivas de corretoras.",
       "areaServed": {
         "@type": "Country",

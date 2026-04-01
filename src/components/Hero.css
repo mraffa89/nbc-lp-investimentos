@@ -192,14 +192,15 @@
   margin-top: var(--space-md);
 }
 
-/* Hero Specific CTA Button - Larger and Pulsing */
+/* Hero Specific CTA Button - Larger and position relative for ring animation */
 .btn-hero {
   font-size: 1.2rem;
   padding: 10px 10px 10px 24px;
   gap: 20px;
-  animation: pulse-glow-hero 2s infinite;
   margin: 0 auto; /* explicit center for mobile flex/block */
   display: flex;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(210, 161, 95, 0.35);
 }
 
 @media (min-width: 992px) {
@@ -226,19 +227,37 @@
   }
 }
 
-@keyframes pulse-glow-hero {
+/* Composited pulse ring using transform+opacity (GPU-accelerated) */
+.btn-hero::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 80px;
+  border: 2px solid rgba(210, 161, 95, 0.7);
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-ring {
   0% {
-    box-shadow: 0 8px 25px rgba(210, 161, 95, 0.25), 0 0 0 0 rgba(210, 161, 95, 0.7);
+    transform: scale(1);
+    opacity: 0.8;
   }
   70% {
-    box-shadow: 0 8px 25px rgba(210, 161, 95, 0.25), 0 0 0 15px rgba(210, 161, 95, 0);
+    transform: scale(1.08);
+    opacity: 0;
   }
   100% {
-    box-shadow: 0 8px 25px rgba(210, 161, 95, 0.25), 0 0 0 0 rgba(210, 161, 95, 0);
+    transform: scale(1.08);
+    opacity: 0;
   }
 }
 
 .btn-hero:hover {
-  animation: none;
   box-shadow: 0 12px 30px rgba(210, 161, 95, 0.6);
+}
+
+.btn-hero:hover::before {
+  animation: none;
+  opacity: 0;
 }
