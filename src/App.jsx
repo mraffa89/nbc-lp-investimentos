@@ -12,22 +12,30 @@ import './App.css';
 
 function App() {
   useEffect(() => {
-    // Captura o gclid da URL
+    // Rastreamento WhatsApp via gclid (processado via n8n)
     const params = new URLSearchParams(window.location.search);
     const gclid = params.get('gclid');
 
-    // Monta o texto da mensagem com ou sem gclid
-    const textoBase = 'Olá, vim do site e preciso de ajuda legal sobre o tema de investimentos.';
-    const textoCom = textoBase + (gclid ? ' ID:' + gclid : '');
-    const urlWhatsApp = 'https://wa.me/5519978277453?text=' + encodeURIComponent(textoCom);
-
-    // Atualiza todos os botões/links que apontam para o WhatsApp
-    // Como é React, as vezes filhos ainda estão montando. Um micro-timeout previne qualquer falha.
-    setTimeout(() => {
-      document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
-        el.href = urlWhatsApp;
+    if (gclid) {
+      fetch('https://n8n.matheusraffa.com.br/webhook/nbc-salvar-gclid', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ gclid: gclid })
+      })
+      .then(r => r.json())
+      .then(data => {
+        const refCode = data.ref_code;
+        const texto = 'Olá, vim do site e preciso de ajuda legal sobre o tema de investimentos. Ref: ' + refCode;
+        const urlWhatsApp = 'https://wa.me/5519978277453?text=' + encodeURIComponent(texto);
+        
+        document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+          el.href = urlWhatsApp;
+        });
+      })
+      .catch(function() {
+        console.error("Falha ao salvar GCLID no n8n.");
       });
-    }, 0);
+    }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
