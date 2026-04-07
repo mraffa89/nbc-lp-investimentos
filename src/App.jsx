@@ -25,7 +25,7 @@ function App() {
       .then(r => r.json())
       .then(data => {
         const refCode = data.ref_code;
-        const texto = 'Olá, vim do site e preciso de ajuda legal sobre o tema de investimentos. Ref: ' + refCode;
+        const texto = 'Olá, fui vítima de um golpe financeiro e gostaria de saber se tenho direito a recuperar meu dinheiro. Ref: ' + refCode;
         const urlWhatsApp = 'https://wa.me/5519978277453?text=' + encodeURIComponent(texto);
         
         document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
