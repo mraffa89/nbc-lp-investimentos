@@ -3,7 +3,7 @@ import './Hero.css';
 
 const Hero = () => {
   return (
-    <section className="hero bg-dark">
+    <section className="hero bg-dark" id="fale-conosco">
       {/* Background Image is now absolute inside .hero, before container */}
       <div className="hero-image fade-in" style={{ animationDelay: '0.4s' }}>
         <div className="image-frame">

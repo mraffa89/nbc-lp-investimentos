@@ -37,7 +37,7 @@ const situations = [
 
 const Identification = () => {
   return (
-    <section className="pain-points section bg-light">
+    <section className="pain-points section bg-light" id="tipos-de-golpe">
       <div className="container">
         <div className="section-header text-center slide-up">
           <h2 className="title-dark">Alguma dessas situações aconteceu com você?</h2>

@@ -26,7 +26,7 @@ const steps = [
 
 const Process = () => {
   return (
-    <section className="section bg-light">
+    <section className="section bg-light" id="como-funciona">
       <div className="container">
         <div className="section-header text-center slide-up mb-xl">
           <h2 className="title-dark">Como funciona nosso atendimento?</h2>

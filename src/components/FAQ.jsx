@@ -34,7 +34,7 @@ const FAQ = () => {
 
   return (
     <>
-      <section className="section faq-section" id="faq">
+      <section className="section faq-section" id="perguntas-frequentes">
         {/* Imagem posicionada à esquerda */}
         <picture>
           <source srcSet="/bg-faq.webp" type="image/webp" />

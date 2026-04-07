@@ -27,7 +27,7 @@ const expertiseItems = [
 
 const Expertise = () => {
   return (
-    <section className="section expertise-section">
+    <section className="section expertise-section" id="seus-direitos">
       <div className="container">
         <div className="section-header text-center slide-up">
           <span className="subtitle-caps">Especialização</span>
