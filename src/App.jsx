@@ -12,6 +12,23 @@ import './App.css';
 
 function App() {
   useEffect(() => {
+    // Captura o gclid da URL
+    const params = new URLSearchParams(window.location.search);
+    const gclid = params.get('gclid');
+
+    // Monta o texto da mensagem com ou sem gclid
+    const textoBase = 'Olá, vim do site e preciso de ajuda legal sobre o tema de investimentos.';
+    const textoCom = textoBase + (gclid ? ' ID:' + gclid : '');
+    const urlWhatsApp = 'https://wa.me/5519978277453?text=' + encodeURIComponent(textoCom);
+
+    // Atualiza todos os botões/links que apontam para o WhatsApp
+    // Como é React, as vezes filhos ainda estão montando. Um micro-timeout previne qualquer falha.
+    setTimeout(() => {
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+        el.href = urlWhatsApp;
+      });
+    }, 0);
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
